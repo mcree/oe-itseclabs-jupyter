@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+jupyterlab = "*"
+zsh-jupyter-kernel = "*"
+ipywidgets = "*"
+iplantuml = "*"
+jupyter_contrib_nbextensions = "*"
+jupyter_nbextensions_configurator = "*"
+jupyterlab-git = "*"
+sympy = "*"
+jupyter-repo2docker = "*"
+password_strength = "*"
+
+[requires]
+python_version = "3.6"

@@ -1,0 +1,6 @@
+.ipynb_checkpoints
+/ubuntu-bionic-18.04-cloudimg-console.log
+/.vagrant/
+/.build/playbook.retry
+.flag-prep-system-done
+.flag-prep-user-done
