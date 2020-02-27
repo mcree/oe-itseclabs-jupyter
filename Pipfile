@@ -16,6 +16,7 @@ jupyterlab-git = "*"
 sympy = "*"
 jupyter-repo2docker = "*"
 password_strength = "*"
+human-time-formatter = "*"
 
 [requires]
 python_version = "3.6"

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2ff227c2db6e6d9c1030a6d5da5237166d3b34a85b1224759a3463477840c27e"
+            "sha256": "578ae923b1be64a20a8db5eeb8d42b80cc4a8aa015ba0bed1ac96609e0092265"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -113,6 +113,20 @@
                 "sha256:e426c3b587bd58c482f0b7fe6145ff4ac7ae6c82673fc656f489719abca6f4cb"
             ],
             "version": "==3.1.0"
+        },
+        "hashcat": {
+            "hashes": [
+                "sha256:c14dffc3d34e84e1cf88230a5c45ab9c5bb766259a105333022ffeabaaad05d3"
+            ],
+            "index": "pypi",
+            "version": "==5.1.0.post3"
+        },
+        "human-time-formatter": {
+            "hashes": [
+                "sha256:703e57a716893be6552b2a5f69b0ba6fe375043da2a1b0c251fa486b2841a4b7"
+            ],
+            "index": "pypi",
+            "version": "==1.0.0.6"
         },
         "idna": {
             "hashes": [
@@ -393,10 +407,10 @@
         },
         "parso": {
             "hashes": [
-                "sha256:56b2105a80e9c4df49de85e125feb6be69f49920e121406f15e7acde6c9dfc57",
-                "sha256:951af01f61e6dccd04159042a0706a31ad437864ec6e25d0d7a96a9fbb9b0095"
+                "sha256:0c5659e0c6eba20636f99a04f469798dca8da279645ce5c387315b2c23912157",
+                "sha256:8515fc12cfca6ee3aa59138741fc5624d62340c97e401c74875769948d4f2995"
             ],
-            "version": "==0.6.1"
+            "version": "==0.6.2"
         },
         "password-strength": {
             "hashes": [
