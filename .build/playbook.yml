@@ -18,6 +18,7 @@
           - locales
           - git
           - sudo
+          - hashcat
         update_cache: yes
     - name: upgrade distribution packages
       apt:
@@ -65,3 +66,9 @@
         dest: /usr/local/bin/
         owner: root
         mode: preserve
+    - name: clean up environment
+      command:
+        cmd: "{{ item }}"
+      with_items:
+        - "apt-get autoremove -f"
+        - "apt-get clean"
