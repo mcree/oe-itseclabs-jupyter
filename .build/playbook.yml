@@ -19,6 +19,8 @@
           - git
           - sudo
           - hashcat
+          - fcrackzip
+          - pdfcrack
         update_cache: yes
     - name: upgrade distribution packages
       apt:
