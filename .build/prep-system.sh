@@ -10,8 +10,8 @@ pipenv install --system
 #jupyter contrib nbextension install
 #jupyter serverextension enable --py jupyterlab_git
 jupyter nbextensions_configurator enable
-#jupyter labextension install --no-build @jupyter-widgets/jupyterlab-manager
+jupyter labextension install --no-build @jupyter-widgets/jupyterlab-manager@2.0
 #jupyter labextension install --no-build @jupyterlab/git
-#jupyter lab build
+jupyter lab build
 touch .flag-prep-system-done
 exit 0
