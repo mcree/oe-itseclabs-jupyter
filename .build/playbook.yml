@@ -22,7 +22,6 @@
           - dotnet-sdk-3.1
           - python3-pip
           - nodejs
-          - npm
           - locales
           - git
           - sudo
@@ -33,10 +32,6 @@
     - name: upgrade distribution packages
       apt:
         upgrade: full
-    - name: install required pip packages
-      pip:
-        executable: pip3
-        requirements: requirements.txt
     - name: setup system locale
       command:
         cmd: "{{ item }}"
@@ -57,6 +52,10 @@
           path: "/home/{{ dest_user }}"
           recurse: yes
           owner: "{{ dest_user }}"
+    - name: install required pip packages
+      pip:
+        executable: pip3
+        requirements: "/home/{{ dest_user }}/oe-itseclabs/.build/requirements.txt"
     - name: setup jupyter
       command:
         cmd: "{{ item.cmd }}"
