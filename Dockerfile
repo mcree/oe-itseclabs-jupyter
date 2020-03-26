@@ -18,9 +18,9 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y remove python2.7-minimal && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install python3 python3-distutils python3-pip && \
     update-alternatives --install /usr/bin/python python /usr/bin/python3.6 10 && \
-    pip3 install ansible==2.9.4 && \
-    ansible-playbook --connection=local --inventory localhost, playbook.yml && \
-    apt-get clean
+    pip3 install ansible==2.9.4
+#    ansible-playbook --connection=local --inventory localhost, playbook.yml && \
+#    apt-get clean
 
 ENV HOME=/home/${NB_USER}
 USER ${USER}

@@ -6,7 +6,8 @@ cd "$(dirname $0)"
 [[ -f ".flag-prep-system-done" ]] && exit 0
 set -e +x
 #pipenv lock
-pipenv install --system
+#pipenv install --system
+#pipenv run pip3 freeze > reqiurements.txt
 #jupyter contrib nbextension install
 #jupyter serverextension enable --py jupyterlab_git
 jupyter nbextensions_configurator enable

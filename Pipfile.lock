@@ -187,11 +187,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:06f5b3a99029c7134207dd882428a66992a9de2bef7c2b699b5641f9886c3302",
-                "sha256:b97607a1a18a5100839aec1dc26a1ea17ee0d93b20b0f008d80a5a050afb200b"
+                "sha256:298a914c82144c6b3b06c568a8973b89ad2176685f43cd1ea9ba968307300fa9",
+                "sha256:dfc83688553a91a786c6c91eeb5f3b1d31f24d71877bbd94ecbf5484e57690a2"
             ],
             "markers": "python_version < '3.8'",
-            "version": "==1.5.0"
+            "version": "==1.5.2"
         },
         "iplantuml": {
             "hashes": [
@@ -260,10 +260,10 @@
         },
         "jupyter-client": {
             "hashes": [
-                "sha256:589dcfb409717cc1baaae5e3d2f7b7f5920763bf039adf4a741aee17e44947af",
-                "sha256:61429e7d2c4b385135d31054944dd3f23a1c6affb0ca3d4328d42fc9ba82b7f5"
+                "sha256:6efcb7780fe1ee828d150a311493c021164bbe15ad17757e78ab46e7ff5a81c4",
+                "sha256:8c1e12e56a97f6036ffe03a7424776e9ff99859bd021f2b64cb9aadabd73acd0"
             ],
-            "version": "==6.1.0"
+            "version": "==6.1.1"
         },
         "jupyter-contrib-core": {
             "hashes": [
@@ -325,11 +325,11 @@
         },
         "jupyterlab-git": {
             "hashes": [
-                "sha256:77a6b791a4bfeedfc81fbb6ef09308b49a0a21f045c14bae6a43267edc77408a",
-                "sha256:dd718da79b17ef3594714f05cee1f8486b3b05a3fa0d93915f7e0f524bc97bcd"
+                "sha256:45b1a68ec843408b44f2d712b7f6ee4c1b44bf851e0384bc2f9f356e7399cec0",
+                "sha256:ddecb3fa0ce374c85a54236df02a08b63917d06a75bd25b33ef77443e743bb7e"
             ],
             "index": "pypi",
-            "version": "==0.9.1"
+            "version": "==0.10.0"
         },
         "jupyterlab-server": {
             "hashes": [

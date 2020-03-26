@@ -4,6 +4,14 @@
     - dest_user: "{{ lookup('env','NB_USER') | default('hallgato', true) }}"
     - dest_uid: "{{ lookup('env','NB_UID') | default(10000, true) }}"
   tasks:
+    - name: add nodejs apt key
+      apt_key:
+        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+        state: present
+    - name: add nodejs repos
+      apt_repository:
+        repo: 'deb https://deb.nodesource.com/node_13.x bionic main'
+        state: present
     - name: enable dotnet package repos
       apt:
         deb: https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
@@ -28,8 +36,7 @@
     - name: install required pip packages
       pip:
         executable: pip3
-        name:
-          - pipenv
+        requirements: requirements.txt
     - name: setup system locale
       command:
         cmd: "{{ item }}"
@@ -72,5 +79,5 @@
       command:
         cmd: "{{ item }}"
       with_items:
-        - "apt-get autoremove -f"
+        - "apt-get autoremove -f -y"
         - "apt-get clean"
