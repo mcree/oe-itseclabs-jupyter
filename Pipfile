@@ -19,6 +19,7 @@ password_strength = "*"
 human-time-formatter = "*"
 pandas = "*"
 bcrypt = "*"
+sshkernel = "*"
 
 [requires]
 python_version = "3.6"
