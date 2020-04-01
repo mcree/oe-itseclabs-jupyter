@@ -9,7 +9,7 @@ set -e +x
 #pipenv install --system
 #pipenv run pip3 freeze > .build/requirements.txt
 #jupyter contrib nbextension install
-remote_ikernel manage --add --host=itseclabs --kernel_cmd="sudo python3 -m zsh_jupyter_kernel -f {connection_file}" --name="ZSH" --system --language=zsh --interface=ssh
+remote_ikernel manage --add --host=itseclabs --kernel_cmd="sudo python3 -m zsh_jupyter_kernel -f {connection_file}" --name="ZSH" --system --language=zsh --interface=ssh --workdir=/tmp
 jupyter serverextension enable --py jupyterlab_git
 python3 -m sshkernel install
 jupyter nbextensions_configurator enable
