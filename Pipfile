@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-jupyterlab = "*"
+jupyterlab = "<2.0"
 zsh-jupyter-kernel = "*"
 ipywidgets = "*"
 iplantuml = "*"
@@ -19,7 +19,8 @@ password_strength = "*"
 human-time-formatter = "*"
 pandas = "*"
 bcrypt = "*"
-sshkernel = "*"
+sshkernel = "==0.9.2"
+remote_ikernel = "*"
 
 [requires]
 python_version = "3.6"

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "264ae18263c57529f0c88e0e51e663baed540fa220a76edc03ac2a8361a8064e"
+            "sha256": "64ba6df123d16d082257eb08d9a05440a9eff78e6006a3f22e4f32bc418e66c8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -350,11 +350,11 @@
         },
         "jupyterlab": {
             "hashes": [
-                "sha256:5d1a833a9e49e6d90d68191917cb16a97ff4ec668c26c85d33ebce629df14141",
-                "sha256:7c0a777aae68bc11c2a772d4c1e32c1f2a15388a3fb4fd43fa621e2261c368e9"
+                "sha256:1997a5a950924391e7e61b9c3b0f6b4623c89a258b4a04c7509222f0f408367e",
+                "sha256:97cac0057794416fa078175a20265f21adf58f9a3d1d7b9497c2d62f56e371f6"
             ],
             "index": "pypi",
-            "version": "==2.0.1"
+            "version": "==1.2.8"
         },
         "jupyterlab-git": {
             "hashes": [
@@ -477,10 +477,10 @@
         },
         "nbformat": {
             "hashes": [
-                "sha256:562de41fc7f4f481b79ab5d683279bf3a168858268d4387b489b7b02be0b324a",
-                "sha256:f4bbbd8089bd346488f00af4ce2efb7f8310a74b2058040d075895429924678c"
+                "sha256:65a79936a128fd85aef392b7fea520166364037118b6fe3ed52de742d06c4558",
+                "sha256:f0c47cf93c505cb943e2f131ef32b8ae869292b5f9f279db2bafb35867923f69"
             ],
-            "version": "==5.0.4"
+            "version": "==5.0.5"
         },
         "notebook": {
             "hashes": [
@@ -737,6 +737,13 @@
             ],
             "version": "==19.0.0"
         },
+        "remote-ikernel": {
+            "hashes": [
+                "sha256:740b80a57fa1af40cadef541c5a4eb293675b504092ecf00c57dd2f0011bd840"
+            ],
+            "index": "pypi",
+            "version": "==0.4.6"
+        },
         "requests": {
             "hashes": [
                 "sha256:43999036bfa82904b6af1d99e4882b560e5e2c68e5c4b0aa03b655f3d7d73fee",
@@ -806,11 +813,11 @@
         },
         "sshkernel": {
             "hashes": [
-                "sha256:37baf2e33fbed54667b4ae8f2c2a338737f105e541a3c235f27b2b38bb5e8439",
-                "sha256:b906c8c09b8ba2c1f893c49c7357938f5d28f468f10fc40d2493f559e66d84b0"
+                "sha256:41a721e12da1803cac7c64d707d1540201de752cacc26e8032524bdc84977efa",
+                "sha256:e3ea3d23ed14776ad60cbfd90115ffa65962e9e85bdda79cb0d00cfb1e385e8e"
             ],
             "index": "pypi",
-            "version": "==0.9.3"
+            "version": "==0.9.2"
         },
         "sympy": {
             "hashes": [
