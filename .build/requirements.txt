@@ -40,7 +40,7 @@ jupyter-repo2docker==0.11.0
 jupyterlab==1.2.8
 jupyterlab-git==0.10.0
 jupyterlab-server==1.0.7
-lxml==4.5.0
+lxml==4.6.2
 MarkupSafe==1.1.1
 metakernel==0.24.3
 mistune==0.8.4
