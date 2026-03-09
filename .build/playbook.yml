@@ -1,27 +1,16 @@
 ---
 - hosts: all
   vars:
-    - dest_user: "{{ lookup('env','NB_USER') | default('hallgato', true) }}"
-    - dest_uid: "{{ lookup('env','NB_UID') | default(10000, true) }}"
+    dest_user: "{{ lookup('env','NB_USER') | default('hallgato', true) }}"
+    dest_uid: "{{ lookup('env','NB_UID') | default(10000, true) }}"
+    venv_path: "/opt/itseclabs-venv"
   tasks:
-    - name: add nodejs apt key
-      apt_key:
-        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-        state: present
-    - name: add nodejs repos
-      apt_repository:
-        repo: 'deb https://deb.nodesource.com/node_13.x bionic main'
-        state: present
-    - name: enable dotnet package repos
-      apt:
-        deb: https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
     - name: install required cli packages
-      apt:
+      ansible.builtin.apt:
         pkg:
-          - apt-transport-https
-          - dotnet-sdk-3.1
-          - python3-pip
-          - nodejs
+          - dotnet-sdk-10.0
+          - python3
+          - python3-venv
           - locales
           - git
           - sudo
@@ -30,16 +19,16 @@
           - pdfcrack
         update_cache: yes
     - name: upgrade distribution packages
-      apt:
+      ansible.builtin.apt:
         upgrade: full
     - name: setup system locale
-      command:
+      ansible.builtin.command:
         cmd: "{{ item }}"
-      with_items:
+      loop:
         - "locale-gen hu_HU.UTF-8"
         - "update-locale LANG=hu_HU.UTF-8 LC_ALL=hu_HU.UTF-8"
     - name: "add default user {{ dest_user }}:{{ dest_uid }}"
-      user:
+      ansible.builtin.user:
         name: "{{ dest_user }}"
         home: "/home/{{ dest_user }}"
         comment: Hallgato
@@ -48,35 +37,41 @@
         shell: /bin/bash
         uid: "{{ dest_uid }}"
     - name: fix /home permissions
-      file:
+      ansible.builtin.file:
           path: "/home/{{ dest_user }}"
           recurse: yes
           owner: "{{ dest_user }}"
-    - name: install required pip packages
-      pip:
-        executable: pip3
+    - name: create Python virtual environment
+      ansible.builtin.command:
+        cmd: "/usr/bin/python3 -m venv {{ venv_path }}"
+        creates: "{{ venv_path }}/bin/activate"
+    - name: install required pip packages in virtual environment
+      ansible.builtin.pip:
         requirements: "/home/{{ dest_user }}/oe-itseclabs/.build/requirements.txt"
+        virtualenv: "{{ venv_path }}"
+        virtualenv_command: "/usr/bin/python3 -m venv"
+        extra_args: --upgrade
     - name: setup jupyter
-      command:
+      ansible.builtin.command:
         cmd: "{{ item.cmd }}"
         creates: "{{ item.creates }}"
         chdir: "/home/{{ dest_user }}/oe-itseclabs/.build/"
       environment:
         LC_ALL: "C.UTF-8"
         LANG: "C.UTF-8"
-        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/{{ dest_user }}/.dotnet/tools"
-      with_items:
+        PATH: "{{ venv_path }}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/{{ dest_user }}/.dotnet/tools"
+      loop:
         - {cmd: "/home/{{ dest_user }}/oe-itseclabs/.build/prep-system.sh", creates: "/home/{{ dest_user }}/oe-itseclabs/.build/.flag-prep-system-done"}
         - {cmd: "sudo -i -u {{ dest_user }} /home/{{ dest_user }}/oe-itseclabs/.build/prep-user.sh", creates: "/home/{{ dest_user }}/oe-itseclabs/.build/.flag-prep-user-done"}
     - name: copy files to /usr/local/bin
-      copy:
+      ansible.builtin.copy:
         src: bin/
         dest: /usr/local/bin/
         owner: root
         mode: preserve
     - name: clean up environment
-      command:
+      ansible.builtin.command:
         cmd: "{{ item }}"
-      with_items:
+      loop:
         - "apt-get autoremove -f -y"
         - "apt-get clean"
