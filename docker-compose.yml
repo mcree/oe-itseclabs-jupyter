@@ -1,12 +1,18 @@
 services:
   jupyter:
+    env_file:
+      - .env
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        NB_UID: "${NB_UID}"
+        NB_USER: "${NB_USER}"
+        NB_PASSWORD: "${NB_PASSWORD}"
     container_name: oe-itseclabs-jupyter
     ports:
       - "8888:8888"
     volumes:
-      - ./:/home/hallgato/oe-itseclabs
-    working_dir: /home/hallgato/oe-itseclabs
-    command: jupyter lab --ip 0.0.0.0 --port 8888 --no-browser
+      - ./:/home/${NB_USER}/oe-itseclabs
+    working_dir: /home/${NB_USER}/oe-itseclabs
+    command: /bin/bash -lc 'exec jupyter lab --ip 0.0.0.0 --port 8888 --no-browser --ServerApp.token="${JUPYTER_TOKEN}"'
