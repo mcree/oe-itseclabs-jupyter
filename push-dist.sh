@@ -1,2 +1,12 @@
-#!/bin/bash
-pipenv run repo2docker --push --user-id 10000 --user-name hallgato --no-run --image-name mcreeiw/oe-itseclabs-jupyter:dist .
+#!/usr/bin/env bash
+set -euo pipefail
+
+image_name="mcreeiw/oe-itseclabs-jupyter:dist"
+
+docker build \
+  --build-arg NB_UID=10000 \
+  --build-arg NB_USER=hallgato \
+  -t "${image_name}" \
+  .
+
+docker push "${image_name}"

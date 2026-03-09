@@ -16,11 +16,11 @@ This repository is designed to work with
 [repo2docker](https://repo2docker.readthedocs.io/en/latest/)
 for supporting casual usage on [binder](mybinder.org)
 
-For local usage, you should [install docker](https://docs.docker.com/install/) as well as
-[pipenv](https://github.com/pypa/pipenv), then you can 
-set up and start the Jupyter service with:
+For local usage, install [Docker](https://docs.docker.com/install/) and run:
 
-    pipenv run repo2docker .
+    docker compose up --build
+
+The JupyterLab server will be available on `http://localhost:8888`.
 
 # Contribute
 
